@@ -1,0 +1,4 @@
+#!/bin/bash
+set -a
+
+AL_PACINO_HOME="${HOME}/al-pacino"
