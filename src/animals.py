@@ -1,4 +1,7 @@
-class Animal(object):
+from abc import ABC
+
+
+class Animal(ABC):
     """Base class"""
 
     def speak(self):
@@ -25,7 +28,7 @@ class Cat(Animal):
 
 
 class Human(Animal):
-    noise = "buuuuuuuurp"
+    noise = "buuurp"
 
     def speak(self):
         print("Hello world")
