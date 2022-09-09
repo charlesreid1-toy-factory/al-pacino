@@ -1,30 +1,28 @@
 include common.mk
 MODULES=tests
 
-all: test
+all: build test
 
 lint:
 	flake8 $(MODULES)
 
-########################################
+build:
+	python3 setup.py build install
+
 # Vars
 # 
 tests:=$(wildcard tests/test_*.py)
 
-########################################
 # Run standalone tests 
 # 
 test:
 	$(MAKE) -j1 $(tests)
 
-parallel_test:
-	$(MAKE) -j4 $(tests)
-
-########################################
 # A pattern rule that runs a single test script
 #
 $(tests): %.py : lint
-	coverage run -p --source=src $*.py
+	coverage run --source=src $*.py
+	coverage report
 
 # Run standalone and integration tests
 #
