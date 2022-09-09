@@ -2,3 +2,6 @@
 set -a
 
 AL_PACINO_HOME="${HOME}/al-pacino"
+
+AL_PACINO_TEST_MODE="standalone"
+#AL_PACINO_TEST_MODE="integration"
