@@ -21,6 +21,7 @@ test:
 # A pattern rule that runs a single test script
 #
 $(tests): %.py : lint
+	#python -m unittest $*.py
 	coverage run --source=src $*.py
 	coverage report
 

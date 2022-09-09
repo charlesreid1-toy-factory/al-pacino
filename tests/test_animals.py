@@ -23,7 +23,7 @@ class TestAnimals(unittest.TestCase):
         ]
         for cls, correct_noise in correct:
             with CaptureStdout() as output:
-                cls.make_noise()
+                cls().make_noise()
             self.assertIn(correct_noise, output)
 
     def test_speak(self):

@@ -19,7 +19,4 @@ setup(
     entry_points={},
     license="MIT",
     install_requires=all_deps,
-    extras_require={
-        "test": dev_deps,
-    }
 )
