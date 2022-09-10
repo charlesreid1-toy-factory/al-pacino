@@ -1,10 +1,11 @@
 import sys
 import string
+import random
 from io import StringIO
 
 
 def random_alphanumeric_string(N=10):
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+    return "".join(random.choices(string.ascii_uppercase + string.digits, k=N))
 
 
 class CaptureStdout(list):

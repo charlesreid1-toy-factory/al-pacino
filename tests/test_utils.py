@@ -11,7 +11,6 @@ from tests import utils
 
 
 class TestCaptureStdout(unittest.TestCase):
-
     def test_capture(self):
         # generate content
         content = []
@@ -21,7 +20,7 @@ class TestCaptureStdout(unittest.TestCase):
         with utils.CaptureStdout() as capture:
             for c in content:
                 print(c)
-        # check content 
+        # check content
         self.assertEqual(len(capture), len(content))
         for c in content:
             self.assertIn(c, capture)
