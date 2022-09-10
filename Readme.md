@@ -43,18 +43,9 @@ and then the `al_pacino` library into it:
 ```
 python3 -m virtualenv vp && source vp/bin/activate
 python3 -m pip install -r requirements.txt
-python3 setup.py build install
-```
-
-or
-
-```
-python3 -m virtualenv vp && source vp/bin/activate
-python3 -m pip install -r requirements.txt
+make clean
 make build
 ```
-
-Also install `requirements-test.txt` if you are planning to run tests.
 
 Now you can use the library like so:
 
@@ -93,4 +84,23 @@ make test
 The utility test suite will not report any coverage, but the pacino test suite will:
 
 ```
+$ make pacino_test
+/Library/Developer/CommandLineTools/usr/bin/make -j1 tests/test_animals.py
+flake8 src tests
+coverage run -p --source=al_pacino tests/test_animals.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+/Library/Developer/CommandLineTools/usr/bin/make coverage
+coverage combine
+Combined data file .coverage.aptos.32308.349086
+coverage report
+Name                                                                             Stmts   Miss  Cover
+----------------------------------------------------------------------------------------------------
+vp/lib/python3.9/site-packages/al_pacino-0.1.0-py3.9.egg/al_pacino/__init__.py       1      0   100%
+vp/lib/python3.9/site-packages/al_pacino-0.1.0-py3.9.egg/al_pacino/animals.py       18      0   100%
+----------------------------------------------------------------------------------------------------
+TOTAL                                                                               19      0   100%
 ```
