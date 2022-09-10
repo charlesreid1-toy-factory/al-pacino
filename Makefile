@@ -4,8 +4,7 @@ MODULES=src tests
 all: build test
 
 lint:
-	#flake8 $(MODULES)
-	@echo okay
+	flake8 $(MODULES)
 
 build:
 	python3 setup.py build install
@@ -66,6 +65,6 @@ clean-pyc:
 	@find . -name '__pycache__' -exec rm -fr {} +
 
 clean-test:
-	@rm -f .coverage
+	@rm -f .coverage*
 
 .PHONY: all lint build utility_test pacino_test coverage test $(tests)
