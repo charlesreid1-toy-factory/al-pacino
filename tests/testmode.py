@@ -2,20 +2,20 @@ import os
 import unittest
 
 
-def standalone(f):
-    return unittest.skipUnless(is_standalone(), "Skipping standalone test")(f)
+def utility(f):
+    return unittest.skipUnless(is_utility(), "Skipping utility test")(f)
 
 
-def is_standalone():
-    return "standalone" in _test_mode()
+def is_utility():
+    return "utility" in _test_mode()
 
 
-def integration(f):
-    return unittest.skipUnless(is_integration(), "Skipping integration test")(f)
+def pacino(f):
+    return unittest.skipUnless(is_pacino(), "Skipping pacino test")(f)
 
 
-def is_integration():
-    return "integration" in _test_mode()
+def is_pacino():
+    return "pacino" in _test_mode()
 
 
 def always(f):
@@ -23,4 +23,4 @@ def always(f):
 
 
 def _test_mode():
-    return os.environ.get('AL_PACINO_TEST_MODE', "standalone")
+    return os.environ.get('AL_PACINO_TEST_MODE', "pacino")

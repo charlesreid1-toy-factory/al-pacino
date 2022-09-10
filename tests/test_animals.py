@@ -2,15 +2,14 @@ import os
 import sys
 import unittest
 
+from al_pacino.animals import Animal, Goat, Cow, Pig, Dog, Cat, Human
+
 pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))  # noqa
 sys.path.insert(0, pkg_root)  # noqa
 
-from tests import testmode
 from tests import utils
-from al_pacino.animals import Animal, Cow, Pig, Dog, Cat, Human
 
 
-@testmode.standalone
 class TestAnimals(unittest.TestCase):
     def test_make_noise(self):
         # base class
@@ -19,6 +18,7 @@ class TestAnimals(unittest.TestCase):
 
         # child classes
         correct = [
+            (Goat, "baaa"),
             (Cow, "moo"),
             (Pig, "oink"),
             (Dog, "arf"),
