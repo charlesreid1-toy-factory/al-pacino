@@ -21,9 +21,10 @@ test:
 # A pattern rule that runs a single test script
 #
 $(tests): %.py : lint
-	#python -m unittest $*.py
-	coverage run --source=src $*.py
-	coverage report
+	python -m unittest $*.py
+	#coverage run -p --source=src $*.py
+	#coverage combine
+	#coverage report
 
 # Run standalone and integration tests
 #
@@ -35,4 +36,4 @@ all_test:
 integration_test:
 	$(MAKE) AL_PACINO_TEST_MODE="integration" test
 
-.PHONY: all lint test safe_test all_test integration_test $(tests)
+.PHONY: all lint build test all_test integration_test $(tests)
