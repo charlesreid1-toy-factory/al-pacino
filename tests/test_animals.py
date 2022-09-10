@@ -14,6 +14,11 @@ from al_pacino.animals import Animal, Cow, Pig, Dog, Cat, Human
 @testmode.standalone
 class TestAnimals(unittest.TestCase):
     def test_make_noise(self):
+        # base class
+        with self.assertRaises(NotImplementedError):
+            Animal().make_noise()
+
+        # child classes
         correct = [
             (Cow, "moo"),
             (Pig, "oink"),
@@ -24,7 +29,8 @@ class TestAnimals(unittest.TestCase):
         for cls, correct_noise in correct:
             with CaptureStdout() as output:
                 cls().make_noise()
-            self.assertIn(correct_noise, output)
+            self.assertIn(correct_noise, "".join(output))
 
-    def test_speak(self):
-        pass
+
+if __name__ == "__main__":
+    unittest.main()
