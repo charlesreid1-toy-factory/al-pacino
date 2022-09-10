@@ -1,14 +1,12 @@
-from abc import ABC
-
-
-class Animal(ABC):
+class Animal(object):
     """Base class"""
-
-    def speak(self):
-        raise NotImplementedError()
+    noise = None
 
     def make_noise(self):
-        print(self.noise)
+        if self.noise is None:
+            raise NotImplementedError()
+        else:
+            print(self.noise)
 
 
 class Cow(Animal):
@@ -29,6 +27,3 @@ class Cat(Animal):
 
 class Human(Animal):
     noise = "buuurp"
-
-    def speak(self):
-        print("Hello world")
