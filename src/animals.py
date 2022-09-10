@@ -9,6 +9,10 @@ class Animal(object):
             print(self.noise)
 
 
+class Goat(Animal):
+    noise = "baaa"
+
+
 class Cow(Animal):
     noise = "moo"
 
