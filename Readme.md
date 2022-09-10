@@ -15,5 +15,82 @@ alt="codestyle-flake8" src="https://img.shields.io/badge/codestyle-flake8-blue" 
 ![Al Pacino](docs/img/pacino.jpg)
 
 A package that demonstrates how to add tests using unittest
-and coverage, and how to treat standalone and integration tests
-separately.
+and coverage, and how to separately run core tests (tests of
+the core library functionality) and utility tests (tests of the
+supporting test utility functions and test infrastructure that
+do not use the core library itself.)
+
+## Quick Start
+
+Start by cloning the repo:
+
+```
+git clone git@github.com:charlesreid1-toy-factory/al-pacino.git
+cd al-pacino
+```
+
+Before you begin, create an `environment` file so you can use the Makefile:
+
+```
+cp environment.example environment
+```
+
+Update the environment file to point to the repository location on disk.
+
+Now you can set up a virtual environment, and install the required packages
+and then the `al_pacino` library into it:
+
+```
+python3 -m virtualenv vp && source vp/bin/activate
+python3 -m pip install -r requirements.txt
+python3 setup.py build install
+```
+
+or
+
+```
+python3 -m virtualenv vp && source vp/bin/activate
+python3 -m pip install -r requirements.txt
+make build
+```
+
+Also install `requirements-test.txt` if you are planning to run tests.
+
+Now you can use the library like so:
+
+```
+$ python3
+
+>>> from al_pacino.animals import Cow
+>>> print(Cow().speak())
+moo
+```
+
+Now you're off and running.
+
+## Running Tests
+
+To run tests, start by installing the test dependencies:
+
+```
+python3 -m pip install -r requirements-test.txt
+python3 setup.py build install
+```
+
+Now run tests:
+
+```
+# Only run tests of test utilities and test support infrastructure
+make utility_test
+
+# Only run tests of the core Al Pacino library
+make pacino_test
+
+# Run all tests
+make test
+```
+
+The utility test suite will not report any coverage, but the pacino test suite will:
+
+```
+```

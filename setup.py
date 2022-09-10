@@ -3,8 +3,6 @@ from src import __version__
 
 with open("requirements.txt") as f:
     all_deps = [x for x in f.read().splitlines() if not x.startswith("#")]
-with open("requirements-dev.txt") as f:
-    dev_deps = [x for x in f.read().splitlines() if not x.startswith("#")]
 
 setup(
     name="al-pacino",
